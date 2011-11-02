@@ -12,7 +12,7 @@ class locales::debian::source inherits locales::debian {
     require => Package["locales-all"],
   }
 
-  file {"//usr/share/locale/locale.alias":
+  file {"/usr/share/locale/locale.alias":
     ensure => "/etc/locale.alias",
     force  => true,
     require => Package["locales"],
