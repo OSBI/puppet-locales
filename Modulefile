@@ -1,0 +1,10 @@
+name 'Analytical Labs-locales'
+version '1.0'
+
+author 'Tom Barber'
+license ''
+project_page ''
+source ''
+summary ''
+description ''
+dependency 'Analytical Labs/common', '==1.0'
