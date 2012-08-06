@@ -10,10 +10,9 @@ Arguments:
 
 */
 define locales::locale($ensure=present, $charset) {
-  common::concatfilepart {"locale-${name}":
+  concat::fragment {"locale-${name}":
     ensure  => $ensure,
-    file    => "/etc/locale.gen",
-    notify  => Exec["locale-gen"],
+    target  => "/etc/locale.gen",
     content => "${name} ${charset}\n",
   }
 }
