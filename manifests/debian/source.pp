@@ -3,6 +3,16 @@
 
 */
 class locales::debian::source inherits locales::debian {
+
+  include concat::setup
+
+  concat {'/etc/locale.alias':
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    notify => Exec['locale-gen'],
+  }
+
   package {"locales-all":
     ensure => absent,
   }
