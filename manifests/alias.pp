@@ -10,11 +10,10 @@ Arguments:
 
 */
 define locales::alias($ensure=present, $locale) {
-  common::concatfilepart{"alias ${name} for ${locale}":
+  concat::fragment{"alias ${name} for ${locale}":
     ensure  => $ensure,
-    file    => "/etc/locale.alias",
+    target  => "/etc/locale.alias",
     content => "${name} ${locale}\n",
-    notify  => Exec["locale-gen"],
     require => Locales::Locale[$locale],
   }
 }
